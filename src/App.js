@@ -43,6 +43,7 @@ function App() {
         <Alerts alert={alert} />
         <Routes>
           <Route path="/about" element={<About mode={mode} />} />
+          <Route path="/TextUtils" element={<TextForm mode={mode} />} />
           <Route
             path="/"
             element={

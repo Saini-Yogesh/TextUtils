@@ -1,8 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 export default function Navbar(props) {
+  let location = useLocation();
+  useEffect(() => {
+    console.log(location.pathname);
+  });
   return (
     <>
       <div>
@@ -30,12 +36,22 @@ export default function Navbar(props) {
             >
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                  <Link className="nav-link " aria-current="page" to="/">
+                  <Link
+                    className={`nav-link ${
+                      location.pathname === "/" ? "active" : ""
+                    }`}
+                    to="/"
+                  >
                     Home
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link " to="/about">
+                  <Link
+                    className={`nav-link ${
+                      location.pathname === "/about" ? "active" : ""
+                    }`}
+                    to="/about"
+                  >
                     About
                   </Link>
                 </li>
