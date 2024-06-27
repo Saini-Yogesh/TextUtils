@@ -1,14 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
 export default function Navbar(props) {
   let location = useLocation();
-  useEffect(() => {
-    console.log(location.pathname);
-  });
   return (
     <>
       <div>

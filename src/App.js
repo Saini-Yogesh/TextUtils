@@ -10,7 +10,7 @@ function App() {
   const [mode, setMode] = useState("light");
   const [alert, setAlert] = useState(null);
 
-  const showAlert = (massage, type) => {
+  let showAlert = (massage, type) => {
     setAlert({
       msg: massage,
       type: type,
@@ -43,7 +43,17 @@ function App() {
         <Alerts alert={alert} />
         <Routes>
           <Route path="/about" element={<About mode={mode} />} />
-          <Route path="/TextUtils" element={<TextForm mode={mode} />} />
+          <Route
+            path="/TextUtils"
+            element={
+              <TextForm
+                heading="Try TextUtils - word counter, character counter, remove extra spaces"
+                mode={mode}
+                alert={alert}
+                showAlert={showAlert}
+              />
+            }
+          />
           <Route
             path="/"
             element={
